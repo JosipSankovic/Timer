@@ -58,5 +58,11 @@ namespace TimerAPI.Repository
             _timerDbContext.SaveChanges();
         }
 
+        public void DeleteTimer(int TimerId)
+        {
+            _timerDbContext.timerProject.Remove(GetProject(TimerId));
+            _timerDbContext.SaveChanges();
+        }
+
     }
 }

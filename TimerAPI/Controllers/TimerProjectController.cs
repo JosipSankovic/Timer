@@ -65,5 +65,19 @@ namespace TimerAPI.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
+
+        [HttpDelete("{projectId:int}")]
+        public IActionResult DeleteProject(int projectId)
+        {
+            try
+            {
+                timerProjectsRepository.DeleteTimer(projectId);
+                return Ok();
+            }
+            catch (System.Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
     }
 }
